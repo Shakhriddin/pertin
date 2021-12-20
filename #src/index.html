@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uz">
+  @@include('./sections/_head.html',{})
+  <body class="--lock">
+    <div class="preloader">
+      <div class="preloader__row">
+        <p class="preloader__text">Pertin...</p>
+        <span class="preloader__circle"></span
+        ><span class="preloader__circle"></span
+        ><span class="preloader__circle"></span>
+      </div>
+    </div>
+    <div class="wrapper">
+      @@include('./sections/_header.html',{})
+      <main class="main">
+        @@include('./sections/_introduction.html',{})
+        @@include('./sections/_about.html',{})
+      </main>
+      @@include('./sections/_footer.html',{})
+    </div>
+    @@include('./sections/_js.html',{})
+  </body>
+</html>

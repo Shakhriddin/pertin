@@ -1,0 +1,132 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if type==1 {
+    #{$property}: $startSize + px;
+    @media only screen and (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize}* ((100vw - 320px) / #{$maxWidthContainer -
+              320})
+      );
+    }
+  } @else if $type==2 {
+    #{$property}: $startSize + px;
+    @media only  screen and (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize}* ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize}* ((100vw - 320px) / #{$maxWidth - 320})
+    );
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin position(
+  $type,
+  $propertyTopBottom,
+  $TopBottomValue,
+  $propertyLeftRight,
+  $LeftRightValue
+) {
+  position: $type;
+  #{$propertyTopBottom}: $TopBottomValue;
+  #{$propertyLeftRight}: $LeftRightValue;
+}
+@mixin mainGradient {
+  background: linear-gradient(
+    180deg,
+    rgba(227, 182, 64, 0),
+    #ddba60 0%,
+    rgba(227, 182, 64, 0)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: mainGradientAnim 3s cubic-bezier(0.375, 0.885, 0.62, 1.275) 1s
+    infinite both alternate;
+}
+
+@keyframes mainGradientAnim {
+  @for $i from 0% to 101% {
+    #{$i} {
+      background: linear-gradient(
+        180deg,
+        rgba(227, 182, 64, 0),
+        #ddba60 $i,
+        rgba(227, 182, 64, 0)
+      );
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@mixin textGradient {
+  background: linear-gradient(90deg, #46360d, #ddba60 51%, #46360d 100%);
+  background-size: 200%;
+  background-position: right center;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 400;
+  @include adaptive-value(font-size, 24, 20, 0);
+  line-height: 1.33;
+  hyphens: auto;
+  animation: textGradientanim 3s linear 1s infinite both alternate;
+  z-index: 5;
+}
+@keyframes textGradientanim {
+  0% {
+    background-position: right center;
+  }
+  100% {
+    background-position: left center;
+  }
+}
+@mixin link {
+  cursor: pointer;
+  @include adaptive-value(font-size, 20, 14, 0);
+  background: linear-gradient(
+    92.22deg,
+    #ddba60 0.23%,
+    #d1b15c 22.53%,
+    #c69c31 47.42%,
+    #a7801d 99.8%
+  );
+  background-position: right center;
+  background-size: 200%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: $InterFontFamily;
+  transition: box-shadow 0.5s cubic-bezier(0.375, 0.885, 0.62, 1.5),
+    transform 0.2s ease-in-out;
+  animation: bgAnim 2s linear 1s infinite alternate both;
+  &:hover {
+    box-shadow: 0 0.25rem 1rem 0.2rem rgba($color: #a7801d, $alpha: 0.5);
+  }
+}
+@keyframes bgAnim {
+  0% {
+    background-position: right center;
+  }
+  100% {
+    background-position: left center;
+  }
+}

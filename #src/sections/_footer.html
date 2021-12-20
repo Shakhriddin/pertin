@@ -1,0 +1,95 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <div class="footer__contact contact">
+        <div class="contact__body --anim-items">
+          <h2 class="footer__title" data-translate="footer-title">
+            Pertin sog’lom hayot <br />
+            tarafdorlari uchun!
+          </h2>
+          <p class="footer__text" data-translate="footer-text">
+            Formani to’ldiring va hoziroq buyurtma bering!
+          </p>
+          <form class="contact__form form" id="form">
+            <div class="form__succes">
+              <svg
+                class="form__succes-checked"
+                focusable="false"
+                role="img"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#f8f8fe"
+                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm155.31 195.31l-184 184a16 16 0 0 1-22.62 0l-104-104a16 16 0 0 1 0-22.62l22.62-22.63a16 16 0 0 1 22.63 0L216 308.12l150.06-150.06a16 16 0 0 1 22.63 0l22.62 22.63a16 16 0 0 1 0 22.62z"
+                ></path>
+                <path
+                  fill="#ddba60"
+                  d="M227.31 387.31a16 16 0 0 1-22.62 0l-104-104a16 16 0 0 1 0-22.62l22.62-22.63a16 16 0 0 1 22.63 0L216 308.12l150.06-150.06a16 16 0 0 1 22.63 0l22.62 22.63a16 16 0 0 1 0 22.62l-184 184z"
+                ></path>
+              </svg>
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                type="text"
+                name="firstName"
+                id="firstName"
+                minlength="3"
+                onkeypress="isValidName(event)"
+                required
+              />
+              <label
+                class="form__label"
+                for="firstName"
+                data-translate="form-label-1"
+                >Ismingiz</label
+              >
+            </div>
+            <div class="form__item">
+              <input
+                class="form__input"
+                type="tel"
+                name="phoneNumber"
+                id="phoneNumber"
+                data-tel-input
+                minlength="13"
+                maxlength="19"
+                placeholder="12 345-67-89"
+                required
+              />
+              <label
+                class="form__label"
+                for="phoneNumber"
+                data-translate="form-label-2"
+                >Telefon</label
+              >
+            </div>
+            <button
+              class="form__btn"
+              type="submit"
+              data-btn="buttons"
+              data-translate="form-btn"
+            >
+              Buyurtma berish
+            </button>
+          </form>
+        </div>
+
+        <div class="contact__location --anim-items">
+          <a class="contact__link" href="tel: +998712000464">
+            <i class="--icon-call"></i> +998-(71)-200-04-64
+          </a>
+          <div
+            class="contact__map --load-map --lazy__image"
+            data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d748.5953341067542!2d69.2940288292577!3d41.36579900521087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIxJzU2LjkiTiA2OcKwMTcnNDAuNSJF!5e0!3m2!1sen!2s!4v1628578526065!5m2!1sen!2s"
+          >
+            <div class="--lazy__spinner"></div>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copyright">
+        <a href="https://t.me/shakhriddin">Twelve-</a>
+      </p>
+    </div>
+  </div>
+</footer>

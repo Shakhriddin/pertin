@@ -1,0 +1,222 @@
+.footer {
+  font-family: $RobotoFontFamily;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 0 0.5rem;
+  &__row {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__copyright {
+    @include textGradient;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+  }
+  &__title {
+    @include mainGradient;
+    @include adaptive-value(font-size, 38, 30, 0);
+    font-weight: 500;
+    line-height: 1.21;
+    text-align: center;
+    margin-bottom: 1.125rem;
+  }
+
+  &__text {
+    @include textGradient;
+    font-size: 0.875rem;
+    line-height: 1.14;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+.contact {
+  display: flex;
+  align-items: center;
+  margin: 0 -1rem;
+  &__location {
+    padding: 0 1rem;
+    align-self: flex-end;
+    opacity: 0;
+    transform: translate(0, 50px) scaleY(1.3);
+    transition: opacity 0.2s linear, transform 0.2s linear;
+  }
+  &__location.--animate {
+    opacity: 1;
+    transform: translate(0, 0) scaleY(1);
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 0.3s,
+      opacity 0.6s linear 0.3s;
+  }
+
+  &__link {
+    @include textGradient;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__map {
+    @include adaptive-value(width, 690, 280, 0);
+    @include adaptive-value(height, 285, 200, 0);
+    border-radius: 0.5rem;
+    border: 2px groove $mainColor;
+    background: #181821;
+    iframe {
+      @include adaptive-value(width, 690, 280, 0);
+      @include adaptive-value(height, 285, 200, 0);
+      border-radius: 0.5rem;
+      z-index: 4;
+      position: relative;
+    }
+  }
+  &__body {
+    opacity: 0;
+    transform: translate(0, 50px) scaleY(1.3);
+    transition: opacity 0.2s linear, transform 0.2s linear;
+  }
+  &__body.--animate {
+    opacity: 1;
+    transform: translate(0, 0) scaleY(1);
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 0.3s,
+      opacity 0.6s linear 0.3s;
+  }
+}
+.form {
+  padding: 0 1rem;
+  @include adaptive-value(width, 442, 320, 0);
+  position: relative;
+  &__succes {
+    @include position(absolute, top, 0, left, 0);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #46360d, #ddba60 51%, #46360d 100%);
+    background-size: 200%;
+    background-position: right center;
+    animation: textGradientanim 3s linear 1s infinite both alternate;
+    z-index: 2;
+    border-radius: 0.5rem;
+    @include flex-center;
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(800px) rotateY(180deg);
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275),
+      opacity 0.5s linear, visibility 0.5s linear;
+    flex-direction: column;
+    .form__succes-checked {
+      width: 100px;
+      filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.3));
+      transform: scale(1.3) rotate(0);
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 1.2s;
+    }
+
+    &.--loading {
+      opacity: 1;
+      visibility: visible;
+      transform: perspective(800px) rotate(0deg);
+      .form__succes-checked {
+        opacity: 1;
+        transform: scale(1) rotate(-360deg);
+      }
+    }
+  }
+  &__item {
+    ::selection {
+      background: linear-gradient(180deg, $mainColor, $secondColor);
+    }
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background: #181821;
+    border: 1px groove rgba(221, 186, 96, 0.3);
+    border-radius: 0.8rem;
+    padding: 1rem 0.5rem;
+    @include mainGradient;
+    font-size: 1.2rem;
+    caret-color: $mainColor;
+    transition: all 0.5s cubic-bezier(0.375, 0.885, 0.62, 1.275);
+    position: relative;
+    &:focus {
+      outline: none;
+      border: 1px groove rgba(221, 186, 96, 1);
+      box-shadow: 0 0 0.65rem 0.01rem $mainColor;
+    }
+    &.--active {
+      border: 1px groove rgba(221, 186, 96, 1);
+    }
+    &::placeholder {
+      text-align: right;
+    }
+  }
+
+  &__label {
+    @include mainGradient;
+    @include position(absolute, bottom, 50%, left, 0.5rem);
+    transform: translate(0%, 50%);
+    font-size: 1.2rem;
+    transition: all 0.5s cubic-bezier(0.375, 0.885, 0.62, 1.275);
+    pointer-events: none;
+  }
+  &__input:focus ~ &__label,
+  &__input:valid ~ &__label {
+    bottom: 100%;
+    left: 0;
+    font-size: 1rem;
+    transform: translate(0%, -50%);
+  }
+
+  &__btn {
+    margin-top: 1rem;
+    background: #181821;
+    border: 1px groove rgba(221, 186, 96, 0.3);
+    border-radius: 0.8rem;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 1.125rem;
+    color: rgba(221, 186, 96, 0.2);
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.375, 0.885, 0.62, 1.275);
+    cursor: default;
+    pointer-events: none;
+    &.--active {
+      pointer-events: all;
+      border: 1px groove rgba(221, 186, 96, 1);
+      cursor: pointer;
+      color: rgba(221, 186, 96, 1);
+      &:hover {
+        transform: translate(0, -10px);
+        box-shadow: 0 0.25rem 0.65rem 0.01rem rgba(221, 186, 96, 0.5);
+      }
+    }
+  }
+}
+@media only screen and (max-width: $md) {
+  .footer__row {
+    justify-content: center;
+  }
+  .contact {
+    flex-direction: column;
+    justify-content: center;
+    margin: -1rem 0;
+    &__location {
+      padding: 1rem 0;
+    }
+  }
+  .form {
+    padding: 1rem 0;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

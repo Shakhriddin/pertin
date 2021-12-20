@@ -1,0 +1,207 @@
+.introduction {
+  font-family: $InterFontFamily;
+  padding: 2rem 0 0;
+  .container {
+    max-width: 1600px;
+  }
+  &__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 -1rem;
+    padding: 4rem 0 2rem;
+  }
+  &__body {
+    padding: 0 1rem;
+    flex: 0 1 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+  }
+
+  &__title {
+    @include mainGradient;
+    @include adaptive-value(font-size, 64, 48, 0);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 36px;
+  }
+  &__text {
+    @include textGradient;
+    margin-bottom: 64px;
+    transition-delay: 2.3s;
+  }
+  &__title,
+  &__text,
+  &__link {
+    opacity: 0;
+    transform: translate(-100%, 0) scaleX(1.5);
+  }
+  &__body.--show &__title,
+  &__body.--show &__text {
+    opacity: 1;
+    transform: translate(0, 0) scaleX(1);
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 1.3s,
+      opacity 0.6s linear 1.3s;
+  }
+  &__body.--show &__text {
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 2.3s,
+      opacity 0.6s linear 2.3s;
+  }
+  &__link {
+    @include link;
+    width: 70%;
+  }
+  &__body.--show &__link {
+    opacity: 1;
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 3.3s,
+      opacity 0.6s linear 3.3s, box-shadow 0.5s ease-in-out 0s;
+    transform: translate(0, 0) scaleX(1);
+  }
+  &__image {
+    flex: 0 1 50%;
+    padding: 0 1rem;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.statistics {
+  min-height: 100vh;
+  padding: 3rem 0;
+  @include flex-center;
+
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 -1rem;
+    padding: 0 2rem;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 35%;
+    padding: 1rem 1.5rem;
+    background-color: rgba(24, 24, 33, 0.9);
+    background-blend-mode: color;
+    box-shadow: inset 0 0 1rem 1rem #181821, 0 0 1rem 0.9rem #181821;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translate(100%, 0) scaleX(1.5);
+    transition: opacity 0.2s linear, transform 0.2s linear;
+    &.--animate {
+      opacity: 1;
+      transform: translate(0, 0) scaleX(1);
+      transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275),
+        opacity 0.8s linear;
+    }
+  }
+
+  &__title {
+    @include mainGradient;
+    @include adaptive-value(font-size, 72, 48, 0);
+    font-weight: 700;
+    line-height: 1.11;
+    margin-bottom: 32px;
+    transition-delay: 2s;
+  }
+  &__text {
+    @include textGradient;
+    transition-delay: 2s;
+  }
+  &__title,
+  &__text {
+    opacity: 0;
+    transform: translate(0, 50%) scaleY(1.1);
+    transition: opacity 0.2s linear 0s, transform 0.2s linear 0s;
+  }
+  &__body.--animate &__title,
+  &__body.--animate &__text {
+    opacity: 1;
+    transform: translate(0, 0) scaleY(1);
+    transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 0.8s,
+      opacity 0.6s linear 0.8s;
+  }
+  &__image {
+    @include flex-center;
+    padding: 0 1rem;
+    flex: 0 1 auto;
+    @include adaptive-value(width, 650, 350, 0);
+    @include adaptive-value(height, 650, 350, 0);
+    filter: contrast(1.3) drop-shadow(0 0 0.5rem rgba(221, 186, 96, 0.39));
+    opacity: 0;
+    transform: translate(0, 100px) scaleY(1.3);
+    transition: opacity 0.2s linear, transform 0.2s linear;
+    &.--animate {
+      opacity: 1;
+      transform: translate(0, 0) scaleY(1);
+      transition: transform 0.8s cubic-bezier(0.375, 0.885, 0.62, 1.275) 0.3s,
+        opacity 0.8s linear 0.3s;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .introduction {
+    &__row {
+      flex-direction: column;
+      justify-content: center;
+      margin: -1rem 0;
+      padding: 6rem 0 1rem;
+    }
+    &__body {
+      padding: 1rem 0;
+      flex: 1 1 auto;
+      align-items: center;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__text {
+      text-align: center;
+    }
+
+    &__link {
+      width: 60%;
+    }
+    &__image {
+      flex: 1 1 auto;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      .wrapper__model {
+        position: static;
+        margin-right: 0;
+      }
+    }
+  }
+  .statistics {
+    padding: 1rem 0;
+    &__row {
+      justify-content: center;
+      flex-direction: column-reverse;
+      margin: -1rem 0;
+      padding: 0;
+    }
+    &__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 1.5rem 0;
+    }
+    &__title,
+    &__text {
+      text-align: center;
+    }
+    &__image {
+      margin-top: 5rem;
+      padding: 1rem 0;
+    }
+  }
+}

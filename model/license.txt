@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pertin
+* source:	https://sketchfab.com/3d-models/pertin-d938cc7a2e244958a169dffc083afb8b
+* author:	shaxriddinshukurov63 (https://sketchfab.com/shaxriddinshukurov63)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pertin" (https://sketchfab.com/3d-models/pertin-d938cc7a2e244958a169dffc083afb8b) by shaxriddinshukurov63 (https://sketchfab.com/shaxriddinshukurov63) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

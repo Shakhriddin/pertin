@@ -1,0 +1,12 @@
+@import 'swiper-bundle';
+@import 'mixins';
+@import 'fonts';
+@import 'icons';
+@import 'variables';
+@import 'reset';
+@import 'global';
+
+@import './sections/header.scss';
+@import './sections/introduction.scss';
+@import './sections/about.scss';
+@import './sections/footer.scss';
